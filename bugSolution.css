@@ -1,0 +1,12 @@
+The solution involves using Tailwind's `@layer` directive to correctly apply the utility classes. By explicitly defining the layer where the `@apply` directives are placed, the problem is resolved.  The `@apply` directives within the imported CSS file should be wrapped inside a `@layer` block, typically within the `components` layer if these styles apply to components.
+
+```css
+/* bugSolution.css */
+@layer components {
+  .my-component {
+    @apply bg-blue-500 text-white p-4 rounded;
+  }
+}
+```
+
+The main stylesheet remains largely unchanged, just ensuring that the import statement still correctly references the `bugSolution.css` file.
